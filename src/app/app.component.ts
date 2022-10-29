@@ -16,6 +16,5 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.trips = this.tripService.getTrips();
-    console.log(this.trips);
   }
 }

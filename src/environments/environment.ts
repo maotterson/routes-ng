@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  ROUTES_API_URL: "http://localhost:8080/api/v1/"
+  ROUTES_API_URL: "http://localhost:8080/api/v1"
 };
 
 /*
