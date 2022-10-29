@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { Trip } from '../interfaces/trip.interface';
 
 
 @Injectable({
@@ -15,8 +16,7 @@ export class TripService {
     this.api_url = `${environment.ROUTES_API_URL}/trips`
   }
 
-  async getTrips(){
-    const trips = await this.http.get(this.api_url);
-    console.log(trips);
+  getTrips(){
+    return this.http.get<Trip>(this.api_url);
   }
 }
