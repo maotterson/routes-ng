@@ -1,18 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class TripsService {
-  url = "http://localhost:8080/api/v1/trips";
+export class TripService {
+  api_url : string;
 
   constructor(
     private http : HttpClient
-  ) { }
+  ) { 
+    this.api_url = `${environment.ROUTES_API_URL}/trips`
+  }
 
   async getTrips(){
-    let trips = await this.http.get(this.url);
+    const trips = await this.http.get(this.api_url);
     console.log(trips);
   }
 }

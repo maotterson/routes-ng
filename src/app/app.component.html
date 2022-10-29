@@ -1,10 +1,6 @@
 <div>
-  <ng-container>
-    <div *ng-for="">
-
-    </div>
-  </ng-container>
-  <ng-container>
-
+  <ng-container *ngFor="let trip of trips; let i = index">
+    <app-trip [trip]="trip">
+    </app-trip>
   </ng-container>
 </div>
