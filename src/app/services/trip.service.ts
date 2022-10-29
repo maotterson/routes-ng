@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { Trip } from '../interfaces/trip.interface';
+import { TripResponse } from '../interfaces/tripresponse.interface';
 
 
 @Injectable({
@@ -17,6 +17,6 @@ export class TripService {
   }
 
   getTrips(){
-    return this.http.get<Trip>(this.api_url);
+    return this.http.get<TripResponse>(this.api_url);
   }
 }

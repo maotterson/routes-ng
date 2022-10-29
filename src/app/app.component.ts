@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Trip } from './interfaces/trip.interface';
+import { TripResponse } from './interfaces/tripresponse.interface';
 import { TripService } from './services/trip.service';
 
 @Component({
@@ -8,13 +10,20 @@ import { TripService } from './services/trip.service';
 })
 export class AppComponent implements OnInit {
   title = 'routes-ng';
-  trips : any;
+  trips! : Trip[] | undefined;
 
   constructor(
     private tripService : TripService
   ) { }
 
   ngOnInit(): void {
-    this.trips = this.tripService.getTrips();
+    this.getTrips();
+  }
+
+  private getTrips() : void {
+    this.tripService.getTrips()
+      .subscribe( (response : TripResponse) => {
+        this.trips = response.data;
+      });
   }
 }
