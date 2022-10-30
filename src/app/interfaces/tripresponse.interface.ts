@@ -4,7 +4,7 @@ import { Trip } from "./trip.interface";
 export interface TripResponse {
     timestamp : string,
     status : string,
-    statusCode : number,
+    status_code : number,
     reason? : string,
     message? : string,
     data : Trip[],
