@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AppStateService } from 'src/app/services/app-state.service';
+import { TripService } from 'src/app/services/trip.service';
 
 @Component({
   selector: 'app-delete-trip',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeleteTripComponent implements OnInit {
 
-  constructor() { }
+  constructor(private appStateService : AppStateService, private tripService : TripService) { }
 
   ngOnInit(): void {
+  }
+
+  public delete() : void {
+    var data = "";
+    this.tripService.deleteTrip(data);
+  }
+
+  public cancel() : void {
+    this.appStateService.toggleCreateNewTripModal();
   }
 
 }
