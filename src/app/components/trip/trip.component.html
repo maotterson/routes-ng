@@ -1,4 +1,9 @@
 <div>
     <p>{{trip | json}}</p>
-    <p>{{trip.name}}</p>
+    <div class="card">
+        <p>{{trip.name}}</p>
+        <p>{{trip.start_location.name}}</p>
+        <p>{{trip.end_location.name}}</p>
+        <p>{{trip.duration_in_traffic}}</p>
+    </div>
 </div>
