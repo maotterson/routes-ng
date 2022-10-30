@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Trip } from 'src/app/interfaces/trip.interface';
+import { AppStateService } from 'src/app/services/app-state.service';
 
 @Component({
   selector: 'app-trip',
@@ -9,7 +10,7 @@ import { Trip } from 'src/app/interfaces/trip.interface';
 export class TripComponent implements OnInit {
   @Input() trip! : Trip;
 
-  constructor() { }
+  constructor(private appStateService : AppStateService) { }
 
   ngOnInit(): void {
   }

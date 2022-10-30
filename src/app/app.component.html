@@ -3,4 +3,11 @@
     <app-trip [trip]="trip">
     </app-trip>
   </ng-container>
+  <ng-container>
+    <a href="#" class="card-link btn btn-primary" (click)="toggleCreateNewTripModal()">New Trip</a>
+  </ng-container>
+  <ng-container *ngIf="isCreatingNewTrip">
+    <app-newtrip>
+    </app-newtrip>
+  </ng-container>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Trip } from './interfaces/trip.interface';
 import { TripResponse } from './interfaces/tripresponse.interface';
+import { AppStateService } from './services/app-state.service';
 import { TripService } from './services/trip.service';
 
 @Component({
@@ -13,11 +14,16 @@ export class AppComponent implements OnInit {
   trips! : Trip[] | undefined;
 
   constructor(
-    private tripService : TripService
+    private tripService : TripService,
+    private appStateService : AppStateService
   ) { }
 
   ngOnInit(): void {
     this.getTrips();
+  }
+  
+  get isCreatingNewTrip() {
+    return this.appStateService.isCreatingNewTrip;
   }
 
   private getTrips() : void {
@@ -26,4 +32,9 @@ export class AppComponent implements OnInit {
         this.trips = response.data;
       });
   }
+
+  public toggleCreateNewTripModal() : void {
+    this.appStateService.toggleCreateNewTripModal();
+  }
+  
 }

@@ -19,4 +19,8 @@ export class TripService {
   getTrips(){
     return this.http.get<TripResponse>(this.api_url);
   }
+
+  createTrip(data : any){ // change payload type
+    return this.http.post(this.api_url, data);
+  }
 }

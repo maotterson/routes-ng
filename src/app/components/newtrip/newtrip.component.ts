@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppStateService } from 'src/app/services/app-state.service';
+import { TripService } from 'src/app/services/trip.service';
 
 @Component({
   selector: 'app-newtrip',
@@ -8,12 +9,18 @@ import { AppStateService } from 'src/app/services/app-state.service';
 })
 export class NewTripComponent implements OnInit {
 
-  constructor(private appStateService : AppStateService) { }
+  constructor(private appStateService : AppStateService, private tripService : TripService) { }
 
   ngOnInit(): void {
   }
 
-  private toggleCreateNewTrip() : void {
-    this.appStateService.toggleCreateNewTrip();
+  public create() : void {
+    var data = "";
+    this.tripService.createTrip(data);
   }
+
+  public cancel() : void {
+    this.appStateService.toggleCreateNewTripModal();
+  }
+
 }
