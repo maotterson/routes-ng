@@ -1,9 +1,11 @@
-<div>
-    <p>{{trip | json}}</p>
+<div class="container">
     <div class="card">
-        <p>{{trip.name}}</p>
-        <p>{{trip.start_location.name}}</p>
-        <p>{{trip.end_location.name}}</p>
-        <p>{{trip.duration_in_traffic}}</p>
+        <div class="card-body">
+            <h5 class="card-title">{{trip.name}}</h5>
+            <p class="card-subtitle">{{trip.start_location.name}} -> {{trip.end_location.name}}</p>
+            <p>{{trip.duration_in_traffic}}</p>
+            <a href="#" class="card-link btn btn-primary">Edit</a>
+            <a href="#" class="card-link btn btn-danger">Delete</a>
+        </div>
     </div>
 </div>
