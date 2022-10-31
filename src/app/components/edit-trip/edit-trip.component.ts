@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppStateService } from 'src/app/services/app-state.service';
 import { TripService } from 'src/app/services/trip.service';
-import { EditTripDto } from 'src/app/interfaces/edittripdto.interface';
+import { EditTripDto } from 'src/app/interfaces/dtos/edittripdto.interface';
 
 @Component({
   selector: 'app-edit-trip',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Trip } from './interfaces/trip.interface';
-import { TripResponse } from './interfaces/tripresponse.interface';
+import { TripResponse } from './interfaces/responses/tripresponse.interface';
 import { AppStateService } from './services/app-state.service';
 import { DataStateService } from './services/data-state.service';
 import { TripService } from './services/trip.service';

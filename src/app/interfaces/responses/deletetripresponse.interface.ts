@@ -1,5 +1,5 @@
-import { Place } from "./place.interface";
-import { Trip } from "./trip.interface";
+import { Place } from "../place.interface";
+import { Trip } from "../trip.interface";
 
 export interface DeleteTripResponse {
     timestamp : string,

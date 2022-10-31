@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { TripResponse } from '../interfaces/tripresponse.interface';
-import { Trip } from '../interfaces/trip.interface';
-import { EditTripDto } from '../interfaces/edittripdto.interface';
-import { NewTripDto } from '../interfaces/newtripdto.interface';
-import { DeleteTripResponse } from '../interfaces/deletetripresponse.interface';
-import { EditTripResponse } from '../interfaces/edittripresponse.interface';
-import { CreateTripResponse } from '../interfaces/createtripresponse.interface';
+import { TripResponse } from '../interfaces/responses/tripresponse.interface';
+import { EditTripDto } from '../interfaces/dtos/edittripdto.interface';
+import { NewTripDto } from '../interfaces/dtos/newtripdto.interface';
+import { DeleteTripResponse } from '../interfaces/responses/deletetripresponse.interface';
+import { EditTripResponse } from '../interfaces/responses/edittripresponse.interface';
+import { CreateTripResponse } from '../interfaces/responses/createtripresponse.interface';
 
 
 @Injectable({

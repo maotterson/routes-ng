@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NewTripDto } from 'src/app/interfaces/newtripdto.interface';
+import { NewTripDto } from 'src/app/interfaces/dtos/newtripdto.interface';
 import { AppStateService } from 'src/app/services/app-state.service';
 import { TripService } from 'src/app/services/trip.service';
 

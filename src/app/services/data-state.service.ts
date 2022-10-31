@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Trip } from '../interfaces/trip.interface';
-import { TripResponse } from '../interfaces/tripresponse.interface';
+import { TripResponse } from '../interfaces/responses/tripresponse.interface';
 import { TripService } from './trip.service';
 
 @Injectable({
