@@ -8,6 +8,7 @@ import { TripService } from './trip.service';
 })
 export class DataStateService {
   trips! : Trip[] | undefined;
+  activeTrip : Trip | undefined;
 
   constructor(private tripService : TripService) { }
 

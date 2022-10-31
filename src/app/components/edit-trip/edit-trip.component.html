@@ -4,11 +4,21 @@
             <h5 class="modal-title" id="exampleModalLabel">Edit Trip</h5>
         </div>
         <div class="modal-body">
-            <label>Start Location</label>
-            <label>End Location</label>
+            <div>
+                <label>Trip Name</label>
+                <input type="text" />
+            </div>
+            <div>
+                <label>Start Location</label>
+                <input type="text"/>
+            </div>
+            <div>
+                <label>End Location</label>
+                <input type="text"/>
+            </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-primary" (click)="edit()">Edit</button>
+            <button type="button" class="btn btn-primary" (click)="edit()">Confirm</button>
             <button type="button" class="btn btn-danger" (click)="cancel()">
                 Cancel
             </button>

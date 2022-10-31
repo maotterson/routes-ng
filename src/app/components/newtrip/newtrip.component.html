@@ -1,9 +1,22 @@
 <div class="modal-popup">
     <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">title</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Create New Trip</h5>
         </div>
-        <div class="modal-body">...</div>
+        <div class="modal-body">
+            <div>
+                <label>Trip Name</label>
+                <input type="text"/>
+            </div>
+            <div>
+                <label>Start Location</label>
+                <input type="text"/>
+            </div>
+            <div>
+                <label>End Location</label>
+                <input type="text"/>
+            </div>
+        </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-primary" (click)="create()">Create</button>
             <button type="button" class="btn btn-danger" (click)="cancel()">

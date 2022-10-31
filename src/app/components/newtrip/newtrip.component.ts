@@ -9,6 +9,9 @@ import { TripService } from 'src/app/services/trip.service';
   styleUrls: ['./newtrip.component.css']
 })
 export class NewTripComponent implements OnInit {
+  name : string = "";
+  startLocation : string = "";
+  endLocation : string = "";
 
   constructor(private appStateService : AppStateService, private tripService : TripService) { }
 
