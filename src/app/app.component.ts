@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Trip } from './interfaces/trip.interface';
 import { TripResponse } from './interfaces/tripresponse.interface';
 import { AppStateService } from './services/app-state.service';
+import { DataStateService } from './services/data-state.service';
 import { TripService } from './services/trip.service';
 
 @Component({
@@ -11,15 +12,18 @@ import { TripService } from './services/trip.service';
 })
 export class AppComponent implements OnInit {
   title = 'routes-ng';
-  trips! : Trip[] | undefined;
 
   constructor(
-    private tripService : TripService,
-    private appStateService : AppStateService
+    private appStateService : AppStateService,
+    private dataStateService : DataStateService
   ) { }
 
   ngOnInit(): void {
     this.getTrips();
+  }
+
+  get trips() {
+    return this.dataStateService.trips;
   }
   
   get isCreatingNewTrip() {
@@ -35,14 +39,10 @@ export class AppComponent implements OnInit {
   }
 
   private getTrips() : void {
-    this.tripService.getTrips()
-      .subscribe( (response : TripResponse) => {
-        this.trips = response.data.trips;
-        console.log(response)
-      });
+    this.dataStateService.updateTrips();
   }
 
-  public toggleCreateNewTripModal() : void {
+  public openCreateModal() : void {
     this.appStateService.openCreateNewTripModal();
   }
   

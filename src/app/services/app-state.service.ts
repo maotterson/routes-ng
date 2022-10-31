@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { DataStateService } from './data-state.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class AppStateService {
   isEditingTrip : boolean = false;
   selectedTripId? : Number;
 
-  constructor() { }
+  constructor(private dataStateService : DataStateService) { }
 
   public openCreateNewTripModal() : void {
     this.closeModals();
@@ -30,5 +31,9 @@ export class AppStateService {
     this.isCreatingNewTrip = false;
     this.isDeletingTrip = false;
     this.isEditingTrip = false;
+  }
+
+  public updateView() : void {
+    this.dataStateService.updateTrips();
   }
 }

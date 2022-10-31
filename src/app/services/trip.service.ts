@@ -6,6 +6,8 @@ import { Trip } from '../interfaces/trip.interface';
 import { EditTripDto } from '../interfaces/edittripdto.interface';
 import { NewTripDto } from '../interfaces/newtripdto.interface';
 import { DeleteTripResponse } from '../interfaces/deletetripresponse.interface';
+import { EditTripResponse } from '../interfaces/edittripresponse.interface';
+import { CreateTripResponse } from '../interfaces/createtripresponse.interface';
 
 
 @Injectable({
@@ -25,19 +27,22 @@ export class TripService {
   }
 
   createTrip(data : NewTripDto) : Boolean { 
-    const response = this.http.post(this.api_url, data);
-    return true;
+    const response = this.http.post<CreateTripResponse>(this.api_url, data);
+    const isSuccess = response.subscribe(res => res.status_code == 201 ? true : false).closed;
+    return isSuccess;
   }
 
   deleteTrip(id : Number) : Boolean { 
     const url = `${this.api_url}/${id}/`;
     const response = this.http.delete<DeleteTripResponse>(url);
-    return true;
+    const isSuccess = response.subscribe(res => res.status_code == 200 ? true : false).closed;
+    return isSuccess;
   }
 
   editTrip(id : Number, data: EditTripDto) : Boolean { 
     const url = `${this.api_url}/${id}/`;
-    const response = this.http.put(url, data);
-    return true;
+    const response = this.http.put<EditTripResponse>(url, data);
+    const isSuccess = response.subscribe(res => res.status_code == 200 ? true : false).closed;
+    return isSuccess;
   }
 }

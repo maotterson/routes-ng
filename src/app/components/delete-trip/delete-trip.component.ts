@@ -18,6 +18,7 @@ export class DeleteTripComponent implements OnInit {
     const deleted = this.tripService.deleteTrip(this.appStateService.selectedTripId!);
     if(deleted){
       this.appStateService.closeModals();
+      this.appStateService.updateView();
     }
   }
 

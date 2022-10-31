@@ -28,6 +28,7 @@ export class EditTripComponent implements OnInit {
     const edited = this.tripService.editTrip(tripId!, tripData);
     if(edited){
       this.appStateService.closeModals();
+      this.appStateService.updateView();
     }
   }
 

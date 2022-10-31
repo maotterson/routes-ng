@@ -3,7 +3,10 @@
         <div class="card-body">
             <h5 class="card-title">{{trip.name}}</h5>
             <p class="card-subtitle">{{trip.start_location.name}} -> {{trip.end_location.name}}</p>
-            <p>{{trip.duration_in_traffic}}</p>
+            <ng-container *ngIf="trip.directions">
+                <p>{{trip.directions.description}}</p>
+                <p>{{trip.directions.duration_in_traffic}} minutes</p>
+            </ng-container>
             <a href="#" class="card-link btn btn-primary" (click)="edit()">Edit</a>
             <a href="#" class="card-link btn btn-danger" (click)="deleteTrip()">Delete</a>
         </div>

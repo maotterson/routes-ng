@@ -25,6 +25,7 @@ export class NewTripComponent implements OnInit {
     const created = this.tripService.createTrip(tripData);
     if(created){
       this.appStateService.closeModals();
+      this.appStateService.updateView();
     }
   }
 
