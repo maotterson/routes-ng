@@ -7,6 +7,7 @@ import { TripComponent } from './components/trip/trip.component';
 import { NewTripComponent } from './components/newtrip/newtrip.component';
 import { EditTripComponent } from './components/edit-trip/edit-trip.component';
 import { DeleteTripComponent } from './components/delete-trip/delete-trip.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DeleteTripComponent } from './components/delete-trip/delete-trip.compon
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
