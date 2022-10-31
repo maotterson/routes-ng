@@ -11,13 +11,24 @@ export class AppStateService {
 
   constructor() { }
 
-  public toggleCreateNewTripModal() : void {
+  public openCreateNewTripModal() : void {
+    this.closeModals();
     this.isCreatingNewTrip = !this.isCreatingNewTrip;
   }
-  public toggleDeleteTripModal() : void {
+  public openDeleteTripModal(id : Number) : void {
+    this.closeModals();
+    this.selectedTripId = id;
     this.isDeletingTrip = !this.isDeletingTrip;
   }
-  public toggleEditTripModal() : void {
+  public openEditTripModal(id : Number) : void {
+    this.closeModals();
+    this.selectedTripId = id;
     this.isEditingTrip = !this.isEditingTrip;
+  }
+  public closeModals() : void {
+    this.selectedTripId = undefined;
+    this.isCreatingNewTrip = false;
+    this.isDeletingTrip = false;
+    this.isEditingTrip = false;
   }
 }

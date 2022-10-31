@@ -16,12 +16,10 @@ export class TripComponent implements OnInit {
   }
 
   public edit(){
-    this.appStateService.selectedTripId=this.trip.id;
-    this.appStateService.toggleEditTripModal();
+    this.appStateService.openEditTripModal(this.trip.id);
   }
   public deleteTrip(){
-    this.appStateService.selectedTripId=this.trip.id;
-    this.appStateService.toggleDeleteTripModal();
+    this.appStateService.openDeleteTripModal(this.trip.id);
   }
 
 }

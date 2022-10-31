@@ -24,12 +24,12 @@ export class NewTripComponent implements OnInit {
     };
     const created = this.tripService.createTrip(tripData);
     if(created){
-      this.appStateService.toggleCreateNewTripModal();
+      this.appStateService.closeModals();
     }
   }
 
   public cancel() : void {
-    this.appStateService.toggleCreateNewTripModal();
+    this.appStateService.closeModals();
   }
 
 }

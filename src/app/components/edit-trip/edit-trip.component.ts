@@ -27,12 +27,12 @@ export class EditTripComponent implements OnInit {
 
     const edited = this.tripService.editTrip(tripId!, tripData);
     if(edited){
-      this.appStateService.toggleCreateNewTripModal();
+      this.appStateService.closeModals();
     }
   }
 
   public cancel() : void {
-    this.appStateService.toggleCreateNewTripModal();
+    this.appStateService.closeModals();
   }
 
 }

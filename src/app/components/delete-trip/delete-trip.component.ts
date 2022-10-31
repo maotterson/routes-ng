@@ -17,12 +17,12 @@ export class DeleteTripComponent implements OnInit {
   public deleteTrip() : void {
     const deleted = this.tripService.deleteTrip(this.appStateService.selectedTripId!);
     if(deleted){
-      this.appStateService.toggleCreateNewTripModal();
+      this.appStateService.closeModals();
     }
   }
 
   public cancel() : void {
-    this.appStateService.toggleCreateNewTripModal();
+    this.appStateService.closeModals();
   }
 
 }

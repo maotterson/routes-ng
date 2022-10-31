@@ -26,15 +26,24 @@ export class AppComponent implements OnInit {
     return this.appStateService.isCreatingNewTrip;
   }
 
+  get isEditingTrip() {
+    return this.appStateService.isEditingTrip;
+  }
+
+  get isDeletingTrip() {
+    return this.appStateService.isDeletingTrip;
+  }
+
   private getTrips() : void {
     this.tripService.getTrips()
       .subscribe( (response : TripResponse) => {
-        this.trips = response.data;
+        this.trips = response.data.trips;
+        console.log(response)
       });
   }
 
   public toggleCreateNewTripModal() : void {
-    this.appStateService.toggleCreateNewTripModal();
+    this.appStateService.openCreateNewTripModal();
   }
   
 }

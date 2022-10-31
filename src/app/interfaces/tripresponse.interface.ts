@@ -7,5 +7,8 @@ export interface TripResponse {
     status_code : number,
     reason? : string,
     message? : string,
-    data : Trip[],
+    data : {
+        trips? : Trip[],
+        trip? : Trip
+    },
 }

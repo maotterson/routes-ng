@@ -6,8 +6,13 @@
   <ng-container>
     <a href="#" class="card-link btn btn-primary" (click)="toggleCreateNewTripModal()">New Trip</a>
   </ng-container>
-  <ng-container *ngIf="isCreatingNewTrip">
-    <app-newtrip>
+  <ng-container >
+    <app-newtrip *ngIf="isCreatingNewTrip">
     </app-newtrip>
+    <app-edit-trip *ngIf="isEditingTrip">
+    </app-edit-trip>
+    <app-delete-trip *ngIf="isDeletingTrip">
+    </app-delete-trip>
   </ng-container>
+  
 </div>
