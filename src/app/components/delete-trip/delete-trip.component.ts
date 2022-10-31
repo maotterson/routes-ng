@@ -15,11 +15,14 @@ export class DeleteTripComponent implements OnInit {
   }
 
   public deleteTrip() : void {
-    const deleted = this.tripService.deleteTrip(this.appStateService.selectedTripId!);
-    if(deleted){
-      this.appStateService.closeModals();
-      this.appStateService.updateView();
-    }
+    this.tripService
+      .deleteTrip(this.appStateService.selectedTripId!)
+      .subscribe(res => {
+      if(res.status_code == 200){
+        this.appStateService.closeModals();
+        this.appStateService.updateView();
+      }
+    });
   }
 
   public cancel() : void {

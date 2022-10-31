@@ -26,23 +26,17 @@ export class TripService {
     return this.http.get<TripResponse>(this.api_url);
   }
 
-  createTrip(data : NewTripDto) : Boolean { 
-    const response = this.http.post<CreateTripResponse>(this.api_url, data);
-    const isSuccess = response.subscribe(res => res.status_code == 201 ? true : false).closed;
-    return isSuccess;
+  createTrip(data : NewTripDto) { 
+    return this.http.post<CreateTripResponse>(this.api_url, data);
   }
 
-  deleteTrip(id : Number) : Boolean { 
+  deleteTrip(id : Number) { 
     const url = `${this.api_url}/${id}/`;
-    const response = this.http.delete<DeleteTripResponse>(url);
-    const isSuccess = response.subscribe(res => res.status_code == 200 ? true : false).closed;
-    return isSuccess;
+    return this.http.delete<DeleteTripResponse>(url);
   }
 
-  editTrip(id : Number, data: EditTripDto) : Boolean { 
+  editTrip(id : Number, data: EditTripDto) { 
     const url = `${this.api_url}/${id}/`;
-    const response = this.http.put<EditTripResponse>(url, data);
-    const isSuccess = response.subscribe(res => res.status_code == 200 ? true : false).closed;
-    return isSuccess;
+    return this.http.put<EditTripResponse>(url, data);
   }
 }

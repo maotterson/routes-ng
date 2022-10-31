@@ -25,11 +25,14 @@ export class EditTripComponent implements OnInit {
       end_location_id : 2
     };
 
-    const edited = this.tripService.editTrip(tripId!, tripData);
-    if(edited){
-      this.appStateService.closeModals();
-      this.appStateService.updateView();
-    }
+    this.tripService
+      .editTrip(tripId!, tripData)
+      .subscribe(res => {
+        if(res.status_code == 200){
+          this.appStateService.closeModals();
+          this.appStateService.updateView();
+        }
+      });
   }
 
   public cancel() : void {

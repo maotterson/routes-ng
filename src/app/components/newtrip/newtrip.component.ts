@@ -22,11 +22,14 @@ export class NewTripComponent implements OnInit {
       start_location_id : 1,
       end_location_id : 2
     };
-    const created = this.tripService.createTrip(tripData);
-    if(created){
-      this.appStateService.closeModals();
-      this.appStateService.updateView();
-    }
+    this.tripService
+      .createTrip(tripData)
+      .subscribe(res => {
+        if(res.status_code == 201){
+          this.appStateService.closeModals();
+          this.appStateService.updateView();
+        }
+      });
   }
 
   public cancel() : void {
