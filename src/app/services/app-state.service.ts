@@ -7,6 +7,7 @@ export class AppStateService {
   isCreatingNewTrip : boolean = false;
   isDeletingTrip : boolean = false;
   isEditingTrip : boolean = false;
+  selectedTripId? : Number;
 
   constructor() { }
 

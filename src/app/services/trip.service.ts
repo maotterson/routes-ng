@@ -3,6 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { TripResponse } from '../interfaces/tripresponse.interface';
 import { Trip } from '../interfaces/trip.interface';
+import { EditTripDto } from '../interfaces/edittripdto.interface';
+import { NewTripDto } from '../interfaces/newtripdto.interface';
+import { DeleteTripResponse } from '../interfaces/deletetripresponse.interface';
 
 
 @Injectable({
@@ -21,17 +24,20 @@ export class TripService {
     return this.http.get<TripResponse>(this.api_url);
   }
 
-  createTrip(data : Trip){ // change payload type
-    return this.http.post(this.api_url, data);
+  createTrip(data : NewTripDto) : Boolean { 
+    const response = this.http.post(this.api_url, data);
+    return true;
   }
 
-  deleteTrip(id : any){ // change payload type
+  deleteTrip(id : Number) : Boolean { 
     const url = `${this.api_url}/${id}/`;
-    return this.http.delete(url);
+    const response = this.http.delete<DeleteTripResponse>(url);
+    return true;
   }
 
-  editTrip(id : any, data: Trip){ // change payload type
+  editTrip(id : Number, data: EditTripDto) : Boolean { 
     const url = `${this.api_url}/${id}/`;
-    return this.http.put(url, data);
+    const response = this.http.put(url, data);
+    return true;
   }
 }

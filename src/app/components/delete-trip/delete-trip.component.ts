@@ -14,9 +14,11 @@ export class DeleteTripComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public delete() : void {
-    var data = "";
-    this.tripService.deleteTrip(data);
+  public deleteTrip() : void {
+    const deleted = this.tripService.deleteTrip(this.appStateService.selectedTripId!);
+    if(deleted){
+      this.appStateService.toggleCreateNewTripModal();
+    }
   }
 
   public cancel() : void {

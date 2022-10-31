@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppStateService } from 'src/app/services/app-state.service';
 import { TripService } from 'src/app/services/trip.service';
+import { EditTripDto } from 'src/app/interfaces/edittripdto.interface';
 
 @Component({
   selector: 'app-edit-trip',
@@ -15,8 +16,19 @@ export class EditTripComponent implements OnInit {
   }
 
   public edit() : void {
-    var data = "";
-    this.tripService.editTrip(data);
+    const tripId = this.appStateService.selectedTripId;
+
+    // todo make dynamic
+    const tripData : EditTripDto = {
+      name : 'edited trip',
+      start_location_id : 1,
+      end_location_id : 2
+    };
+
+    const edited = this.tripService.editTrip(tripId!, tripData);
+    if(edited){
+      this.appStateService.toggleCreateNewTripModal();
+    }
   }
 
   public cancel() : void {

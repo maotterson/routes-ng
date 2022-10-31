@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NewTripDto } from 'src/app/interfaces/newtripdto.interface';
 import { AppStateService } from 'src/app/services/app-state.service';
 import { TripService } from 'src/app/services/trip.service';
 
@@ -15,8 +16,16 @@ export class NewTripComponent implements OnInit {
   }
 
   public create() : void {
-    var data = "";
-    this.tripService.createTrip(data);
+    // todo make dynamic from form
+    var tripData : NewTripDto = {
+      name : 'created trip',
+      start_location_id : 1,
+      end_location_id : 2
+    };
+    const created = this.tripService.createTrip(tripData);
+    if(created){
+      this.appStateService.toggleCreateNewTripModal();
+    }
   }
 
   public cancel() : void {

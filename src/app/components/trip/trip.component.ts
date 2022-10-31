@@ -15,4 +15,13 @@ export class TripComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public edit(){
+    this.appStateService.selectedTripId=this.trip.id;
+    this.appStateService.toggleEditTripModal();
+  }
+  public deleteTrip(){
+    this.appStateService.selectedTripId=this.trip.id;
+    this.appStateService.toggleDeleteTripModal();
+  }
+
 }
